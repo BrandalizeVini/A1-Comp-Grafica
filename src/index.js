@@ -16,7 +16,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(30, 30, 50);
 camera.lookAt( 0, 0, 0 );
 
-//  ---------   APLICAR FUNDO DE CENA ------------
+//  ---------  INICIO APLICAR FUNDO DE CENA ------------
 const scene = new THREE.Scene();
 scene.background = new THREE.CubeTextureLoader()
 	.setPath( '../img/' )
@@ -28,9 +28,11 @@ scene.background = new THREE.CubeTextureLoader()
 		'pz.jpg',
 		'nz.jpg'
 	] );
-// ---------   FIM ------------
+// ---------   FIM APLICAR FUNDO DE CENA------------
 
-const material = new THREE.LineBasicMaterial( { color: 0x03fc28 } );
+
+// ---------   INICIO DESENHA O CUBO ------------
+const material = new THREE.LineBasicMaterial( { color: 0x000000 } );
 
 let p1, p2, p3, p4, p5, p6, p7, p8, geometry, lines;
 
@@ -55,6 +57,8 @@ function draw (points, geometry, lines, scene) {
     lines = new THREE.LineLoop( geometry, material );
     scene.add( lines );
 }
+
+// ---------   FIM DESENHA O CUBO ------------
 
 // ---------   PINTAR O CUBO DE UMA COR ------------
 //const geometry_box = new THREE.BoxGeometry( 20, 20, 20 );
@@ -81,46 +85,19 @@ loader.load(
 );*/
 
 const controls = new OrbitControls( camera, renderer.domElement );
-
-//controls.update() must be called after any manual changes to the camera's transform
 camera.position.set( 0, 20, 100 );
 controls.update();
 
-/*------------ NADA ABAIXO COMENTADO FUNCIONA
-// ---------   ADICIONA O GLTFLoader ------------
-document.body.appendChild( renderer.domElement );
-const loader = new GLTFLoader();
-const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath( '../draco/' );
-loader.setDRACOLoader( dracoLoader );
-loader.load(
-	// resource URL
-	'models/gltf/duck/duck.gltf',
-	// called when the resource is loaded
-	function ( gltf ) {
-		scene.add( gltf.scene );
-		gltf.animations; // Array<THREE.AnimationClip>
-		gltf.scene; // THREE.Group
-		gltf.scenes; // Array<THREE.Group>
-		gltf.cameras; // Array<THREE.Camera>
-		gltf.asset; // Object
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	},
-	// called when loading has errors
-	function ( error ) {
-		console.log( 'An error happened' );
-	}
-);*/
 
 // ---------   ADICIONA O GLTFLoader ------------
 const loader = new GLTFLoader();
-loader.load('../glb/wraith.glb', function(glb){
+loader.load('../glb/Ankit.glb', function(glb){
     console.log(glb);
     const root = glb.scene;
+	// Posição / Altura / Profundidade
     root.position.set(0,10,0);
+	// Largura / Altura / Profundidade
+	root.scale.set(15,15,15);
     scene.add(root);
 }, function(xhr) {
     console.log((xhr.loaded/xhr.total * 100) + "% loaded");
@@ -139,7 +116,6 @@ scene.add(light2);
 
 function animate() {
 	requestAnimationFrame( animate );
-	// required if controls.enableDamping or controls.autoRotate are set to true
 	controls.update();
 	renderer.render( scene, camera );
 }
