@@ -1,4 +1,4 @@
-## _Computação Gráfica - A1
+## Computação Gráfica - A1
 
 🚀 Começando
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
@@ -15,13 +15,11 @@ O trabalho requer [Node.js](https://nodejs.org/) e [Webpack](https://webpack.js.
 Instale as dependências e faça o build do projeto 
 
 ```sh
-cd 
-trabalho1_CompGrafica
 npm install
 npm run build
 ```
 
-## _Alunos:
-
+## Alunos:
 Vinicius Brandalize
+
 Gabriel Rocha
