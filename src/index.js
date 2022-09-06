@@ -60,10 +60,15 @@ function draw (points, geometry, lines, scene) {
 
 // ---------   FIM DESENHA O CUBO ------------
 
+
+
 // ---------   PINTAR O CUBO DE UMA COR ------------
-//const geometry_box = new THREE.BoxGeometry( 20, 20, 20 );
-//const material_box = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
-//const mesh = new THREE.Mesh( geometry_box, material_box );
+const geometry_box = new THREE.BoxGeometry( 20, 20, 20 );
+const material_box = new THREE.MeshBasicMaterial( { color: 0x696969 } );
+const mesh = new THREE.Mesh( geometry_box, material_box );
+scene.add( mesh );
+// ---------   FIM PINTAR O CUBO DE UMA COR ------------
+
 /*
 ---------   ADICIONAR IMAGEM AO CUBO ------------ NADA ABAIXO COMENTADO FUNCIONA
 const loader = new THREE.TextureLoader();
