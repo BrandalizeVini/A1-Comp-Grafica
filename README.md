@@ -12,3 +12,6 @@ npm install
 # Build for production in the dist/ directory
 npm run build
 ```
+## Alunos:
+Vinicius Brandalize 
+Gabriel Rocha
